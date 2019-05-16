@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ComicMan.mainwindowController">
+    <top>
+        <ToolBar maxHeight="20.0" minHeight="20.0" prefHeight="20.0" style="-fx-background-color: dimgrey" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" text="Choose Directory" onAction="#choosePathButtonAction" />
+            <!--          <Button onAction="#openOptions" text="Open Options" />-->
+        </ToolBar>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #383838;" BorderPane.alignment="CENTER">
+            <TilePane fx:id="mainPane">
+            </TilePane>
+        </ScrollPane>
+    </center>
+</BorderPane>
