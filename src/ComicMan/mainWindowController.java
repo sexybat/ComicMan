@@ -8,17 +8,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
-import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 
 import java.nio.file.Path;
 import java.util.List;
 
-public class mainwindowController {
+public class mainWindowController {
     @FXML
     private TilePane mainPane;
 
     private Library comicLib = new Library();
+
+    @FXML
+    private void initialize(){
+        showComics(comicLib.getAllComics());
+    }
 
     @FXML protected void choosePathButtonAction(ActionEvent event) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -27,7 +31,6 @@ public class mainwindowController {
         comicLib.addComicFromDir(chosenDirectory);
         showComics(comicLib.getAllComics());
     }
-
 
     private void showComics(List<Comic> comics) {
         for (Comic comic :

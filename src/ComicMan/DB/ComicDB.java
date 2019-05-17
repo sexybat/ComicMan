@@ -1,6 +1,7 @@
 package ComicMan.DB;
 
 import ComicMan.Comic;
+import ComicMan.Configuration.GlobalConfiguration;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,11 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ComicDB {
-    private Path databaseLocation =
-            Paths.get(System.getProperty("user.home"), ".comicman", "database", "comics.sqlite");
+    private Path databaseLocation = GlobalConfiguration.getDatabaseDirectory().resolve("comics.sqlite");
     private Connection database;
 
-    public void initialize() throws SQLException {
+    private void initialize() throws SQLException {
         database = DriverManager.getConnection("jdbc:sqlite:" + databaseLocation);
 
         database.createStatement().execute(

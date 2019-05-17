@@ -1,5 +1,7 @@
 package ComicMan;
 
+import ComicMan.Configuration.GlobalConfiguration;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.Enumeration;
@@ -12,7 +14,7 @@ public class Comic {
     private Path cover;
     private String name;
 
-    public Comic (Path comicFile) {
+    Comic(Path comicFile) {
         file = comicFile;
         name = file.getFileName().toString().substring(0, file.getFileName().toString().lastIndexOf("."));
         findCover();
@@ -59,7 +61,7 @@ public class Comic {
                 }while(entries.hasMoreElements());
 
                 coverFileExtension = zipEntryCover.getName().substring(zipEntryCover.getName().lastIndexOf("."));
-                coverFile = Paths.get(System.getProperty("user.home"), ".comicman", "covers", name + coverFileExtension );
+                coverFile = GlobalConfiguration.getCoverDirectory().resolve( name + coverFileExtension );
                 Files.copy(comicZip.getInputStream(zipEntryCover), coverFile, StandardCopyOption.REPLACE_EXISTING);
 
                 cover = coverFile;

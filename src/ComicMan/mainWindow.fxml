@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ComicMan.mainwindowController">
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ComicMan.mainWindowController">
     <top>
         <ToolBar maxHeight="20.0" minHeight="20.0" prefHeight="20.0" style="-fx-background-color: dimgrey" BorderPane.alignment="CENTER">
             <Button mnemonicParsing="false" text="Choose Directory" onAction="#choosePathButtonAction" />
