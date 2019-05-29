@@ -1,5 +1,6 @@
 package ComicMan;
 
+import ComicMan.Configuration.GlobalConfiguration;
 import ComicMan.DB.ComicDB;
 
 import java.io.IOException;
@@ -9,27 +10,32 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Library {
+class Library {
 
     private ComicDB comicDatabase = new ComicDB();
 
-    public Library() {
-        comicDatabase.connect();
-    }
-
-    public void addComic(Path comicLocation){
+    void addComic(Path comicLocation) {
         comicDatabase.addComic(new Comic(comicLocation));
     }
 
-    public void addComicFromDir(Path directory){
+    void addComicFromDir(Path directory) {
         for (Path comic :
                 Objects.requireNonNull(scrapeForFiles(directory))) {
             addComic(comic);
         }
     }
 
-    public List<Comic> getAllComics(){
-        return comicDatabase.getComics();
+    void deleteComic(Comic comicToDelete) {
+        try {
+            comicDatabase.deleteComic(comicToDelete);
+            Files.delete(comicToDelete.getCover());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    List<Comic> getAllComics() {
+        return comicDatabase.getAllComics();
     }
 
     private List<Path> scrapeForFiles(Path directoryToRead) {
@@ -63,5 +69,26 @@ public class Library {
             }
         }
         return null;
+    }
+
+    void updateComicReadStatus(Comic comic, boolean read) {
+        comic.setRead(read);
+        comicDatabase.updateRead(comic);
+    }
+
+    void deleteAllComics() {
+        try {
+            comicDatabase.deleteAll();
+            clearCovers();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void clearCovers() throws IOException {
+        for (Path file :
+                Files.newDirectoryStream(GlobalConfiguration.getCoverDirectory())) {
+            Files.delete(file);
+        }
     }
 }

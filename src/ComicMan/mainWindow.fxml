@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.TilePane?>
 
-<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ComicMan.mainWindowController">
+<BorderPane minHeight="1200.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ComicMan.mainWindowController">
     <top>
-        <ToolBar maxHeight="20.0" minHeight="20.0" prefHeight="20.0" style="-fx-background-color: dimgrey" BorderPane.alignment="CENTER">
-            <Button mnemonicParsing="false" text="Choose Directory" onAction="#choosePathButtonAction" />
-            <!--          <Button onAction="#openOptions" text="Open Options" />-->
-        </ToolBar>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu text="File">
+                <MenuItem onAction="#addComicFromDirActionEvent" text="Add Comics from Directory" />
+                <MenuItem onAction="#addSingleComicActionEvent" text="Add Comic" />
+                <MenuItem onAction="#clearLibraryActionEven" text="Delete all"/>
+            </Menu>
+        </MenuBar>
     </top>
     <center>
-        <ScrollPane fitToWidth="true" style="-fx-background: #383838;" BorderPane.alignment="CENTER">
+        <ScrollPane>
             <TilePane fx:id="mainPane">
             </TilePane>
         </ScrollPane>

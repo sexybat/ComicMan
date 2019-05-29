@@ -13,17 +13,20 @@ public class Comic {
     private Path file;
     private Path cover;
     private String name;
+    private boolean read;
 
     Comic(Path comicFile) {
         file = comicFile;
         name = file.getFileName().toString().substring(0, file.getFileName().toString().lastIndexOf("."));
         findCover();
+        read = false;
     }
 
-    public Comic (Path comic, String comicName, Path coverLocation){
-        file = comic;
-        name = comicName;
-        cover = coverLocation;
+    public Comic (Path file, String name, Path cover, boolean read) {
+        this.file = file;
+        this.name = name;
+        this.cover = cover;
+        this.read = read;
     }
 
     public String getName() {
@@ -36,6 +39,14 @@ public class Comic {
 
     public Path getCover() {
         return cover;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    void setRead(boolean read) {
+        this.read = read;
     }
 
     private void findCover() {
@@ -58,7 +69,7 @@ public class Comic {
                     String file = Paths.get(zipEntryCover.getName()).getFileName().toString();
                     if (file.startsWith("01"))
                         break;
-                }while(entries.hasMoreElements());
+                } while(entries.hasMoreElements());
 
                 coverFileExtension = zipEntryCover.getName().substring(zipEntryCover.getName().lastIndexOf("."));
                 coverFile = GlobalConfiguration.getCoverDirectory().resolve( name + coverFileExtension );

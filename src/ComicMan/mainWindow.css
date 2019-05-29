@@ -1,0 +1,97 @@
+/*Menu*/
+
+.context-menu{
+    -fx-background-color: #282828;
+    -fx-border-color: darkgray;
+    -fx-border-width: 0.2;
+}
+
+.context-menu .menu-item .label{
+    -fx-text-fill: white;
+}
+
+.context-menu .menu-item{
+    -fx-padding: 2;
+}
+
+.context-menu .menu-item:hover,
+.context-menu .menu-item:focused,
+.context-menu .menu-item:showing{
+    -fx-background-color: dimgray;
+}
+
+.menu-bar{
+    -fx-background-color: #292929;
+    -fx-background: #292929;
+    -fx-border-color: darkgray;
+    -fx-border-width: 0.2;
+}
+
+.menu-bar .menu .label{
+    -fx-text-fill: white;
+    -fx-padding: 0.1;
+}
+
+.menu-bar .menu{
+    -fx-padding: 0;
+}
+
+.menu-bar .menu .menu-item{
+    -fx-padding: 1;
+}
+
+.menu-bar .menu:hover,
+.menu-bar .menu:focused,
+.menu-bar .menu:showing{
+    -fx-background-color: dimgray;
+}
+
+.menu-bar .menu .menu-item:hover,
+.menu-bar .menu .menu-item:focused,
+.menu-bar .menu .menu-item:showing{
+    -fx-background-color: dimgray;
+}
+
+/*ScrollPane*/
+
+.scroll-pane {
+    -fx-fit-to-width: true;
+
+    -fx-background: #383838;
+    -fx-background-color: #383838;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-arrows-visible: false;
+    -fx-padding: 0;
+}
+
+.scroll-bar .track{
+    -fx-padding: 0;
+}
+
+.scroll-bar .thumb{
+    -fx-background-color: darkgray;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+#mainPane {
+    -fx-hgap: 10;
+    -fx-vgap: 5;
+    -fx-padding: 10;
+}
