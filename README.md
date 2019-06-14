@@ -1,11 +1,11 @@
 # ComicMan
 Comic Manager for Linux, Windows and OSX
 
-###Installation
+### Installation
 
 Download the [Zip-Folder](https://github.com/Lofter1/ComicMan/releases/latest) and unpack it into the directory you want the program to be in.
 
-###Usage
+### Usage
 Add a single comic to your library by going to 
 `File->Add Comic`
 or add multiple comics by going to
@@ -21,5 +21,5 @@ Mark a comic as either read or not read by rightclicking on it and choosing `Mar
 
 Warning: This program is still in alpha. Future releases might not be compatible with a library of an older release
 
-###Known Bugs
+### Known Bugs
 - Long loading time and possible crash when adding too many comics at once
